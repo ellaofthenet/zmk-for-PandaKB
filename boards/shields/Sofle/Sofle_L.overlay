@@ -1,31 +1,15 @@
-/*
- * Copyright (c) 2020 Ryan Cross
- *
- * SPDX-License-Identifier: MIT
+#include <dt-bindings/zmk/matrix_transform.h>
+
+/* Column pins set from multimeter measurements of this board.
+ * col0=P0.20  col1=P0.22  col2=P0.24  col3=P1.00  col4=P0.11  col5=P1.04
  */
-
-#include "Sofle.dtsi"
-
 &kscan0 {
     col-gpios
-        = <&pro_micro 19 GPIO_ACTIVE_HIGH>
-        , <&pro_micro 18 GPIO_ACTIVE_HIGH>
-        , <&pro_micro 15 GPIO_ACTIVE_HIGH>
-        , <&pro_micro 14 GPIO_ACTIVE_HIGH>
-        , <&pro_micro 16 GPIO_ACTIVE_HIGH>
-        , <&pro_micro 10 GPIO_ACTIVE_HIGH>
+        = <&gpio0 20 GPIO_ACTIVE_HIGH>
+        , <&gpio0 22 GPIO_ACTIVE_HIGH>
+        , <&gpio0 24 GPIO_ACTIVE_HIGH>
+        , <&gpio1 0  GPIO_ACTIVE_HIGH>
+        , <&gpio0 11 GPIO_ACTIVE_HIGH>
+        , <&gpio1 4  GPIO_ACTIVE_HIGH>
         ;
-};
-
-&left_encoder {
-    status = "okay";
-};
-/ {
-    chosen {
-      zmk,battery = &vbatt;
-    };
-
-    vbatt: vbatt {
-        compatible = "zmk,battery-nrf-vddh";
-    };
 };
